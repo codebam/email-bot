@@ -9,7 +9,12 @@ export default {
 			{ role: 'user', content },
 		];
 		// @ts-expect-error broken bindings
-		const { response } = await env.AI.run('@cf/meta/llama-3.2-11b-vision-instruct', { messages });
+		let response: string;
+		try {
+			response = ((await env.AI.run('@cf/meta/llama-3.2-11b-vision-instruct', { messages })) as { response: string }).response;
+		} catch (e) {
+			response = 'ERROR: Model failed to read email.';
+		}
 		const msg = createMimeMessage();
 		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') as string);
 		msg.setSender({ name: 'Sean Behan', addr: 'contact@seanbehan.ca' });
