@@ -3,6 +3,9 @@ name = "email-bot"
 main = "src/index.ts"
 compatibility_date = "2024-11-06"
 compatibility_flags = ["nodejs_compat"]
+send_email = [
+    {name = "SENDEMAIL", destination_address = "codebam@riseup.net"},
+]
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
@@ -27,8 +30,8 @@ enabled = true
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
-# [ai]
-# binding = "AI"
+[ai]
+binding = "AI"
 
 # Bind an Analytics Engine dataset. Use Analytics Engine to write analytics within your Pages Function.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#analytics-engine-datasets
