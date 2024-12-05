@@ -5,7 +5,7 @@ export default {
 	async email(message, env, ctx) {
 		const content = await new Response(message.raw).text();
 		const messages = [
-			{ role: 'system', content: 'you are an email responder, reply to the given message' },
+			{ role: 'system', content: 'You are an email responder. Reply to the given message as a person named Sean Behan.' },
 			{ role: 'user', content },
 		];
 		// @ts-expect-error broken bindings
