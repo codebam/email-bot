@@ -23,7 +23,6 @@ export default {
 		const replyMessage = new EmailMessage('contact@seanbehan.ca', message.from, msg.asRaw());
 
 		await message.reply(replyMessage);
-		await env.SENDEMAIL.send(replyMessage);
 		await message.forward('codebam@riseup.net');
 	},
 } satisfies ExportedHandler<Env>;
