@@ -14,7 +14,7 @@ export default {
 		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') as string);
 		msg.setSender({ name: 'Sean Behan', addr: 'contact@seanbehan.ca' });
 		msg.setRecipient(message.from);
-		msg.setSubject('Auto-reply');
+		msg.setSubject('RE');
 		msg.addMessage({
 			contentType: 'text/plain',
 			data: `${response}\n\nThis was an automated message. If this is urgent, message Sean on Telegram https://t.me/codebam`,
